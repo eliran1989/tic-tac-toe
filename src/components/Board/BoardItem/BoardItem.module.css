@@ -1,0 +1,25 @@
+.BoardItem{
+    border: 3px solid #000;
+    flex-basis: calc(33.333333% - 3px);
+    height: 33%;
+    display: flex;
+    justify-content: space-around;
+   align-items: center;
+    font-size: 4rem;
+}
+
+.BoardItem:nth-child(1) , .BoardItem:nth-child(3) , .BoardItem:nth-child(7) , .BoardItem:nth-child(9){
+    border: none;
+}
+
+.BoardItem:nth-child(2) ,.BoardItem:nth-child(8){
+    border-top: none;
+    border-bottom: none;
+}
+
+.BoardItem:nth-child(4) , .BoardItem:nth-child(6){
+    border-left: none;
+    border-right: none;
+}
+
+
