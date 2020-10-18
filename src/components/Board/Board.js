@@ -16,13 +16,20 @@ const Board = (props) => {
         if(index%3===0){
             row++;
         }
+
+
+ 
         
-        items.push(<BoardItem col={index%3==0 ? 0 : index%3} row={row} onClickItem={props.onClickItem} value={props.board[row][index%3==0]} key={`item${index}`} index={index}/>);
+        items.push(<BoardItem col={index%3==0 ? 0 : index%3} row={row} onClickItem={props.onClickItem} value={props.board[row][index%3==0 ? 0 : index%3]} key={`item${index}`} index={index}/>);
     }
 
     return (
-        <div className={classes.Board}>
-            {items}
+        <div>
+        {
+            <div className={classes.Board}>
+                {items}
+            </div>
+        }
         </div>
     )
 
@@ -32,14 +39,16 @@ const Board = (props) => {
 
 const mapStateToProps = state =>{
     return {
-        board:state.board
+        board:state.board,
+        won:state.won,
+        wonItems:state.wonItems
     }
 }
 
 const mapDispatchToProps = dispatch =>{
 
     return {
-        onClickItem : (col , row) => dispatch({type:"CLICKITEM" , payload:{col:col , row:row}})
+        onClickItem : (row , col) => dispatch({type:"CLICKITEM" , payload:{col:col , row:row}})
 
     }
 }
