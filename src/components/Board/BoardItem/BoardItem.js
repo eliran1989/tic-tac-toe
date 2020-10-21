@@ -3,9 +3,14 @@ import classes from './BoardItem.module.css';
 
 export default function BoardItem(props) {
    
+    const itemClass = [classes.BoardItem];
+
+    if(props.wonItem){
+        itemClass.push(classes.WonItem)
+    }
 
     return (
-        <div className={classes.BoardItem} style={(props.markItem) ? {backgroundColor:"#000"}:{} } onClick={()=>props.onClickItem(props.row , props.col)}>
+        <div className={itemClass.join(" , ")}  onClick={()=>props.onClickItem(props.row , props.col)}>
             <div>
                 {props.value}
             </div>
